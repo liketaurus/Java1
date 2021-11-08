@@ -9,3 +9,5 @@
 * [ReplIt](https://replit.com/)
 * [GitHub Codespaces](https://github.com/features/codespaces)
 * [GitPod](https://www.gitpod.io/)
+
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
