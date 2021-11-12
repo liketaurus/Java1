@@ -1,0 +1,46 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package com.mybank.domain;
+
+/**
+ *
+ * @author alexa
+ */
+public class CheckingAccount extends Account {
+
+    private double overdraftAmount;
+
+    public double getOverdraftAmount() {
+        return overdraftAmount;
+    }
+
+    public CheckingAccount(double balance, double overdraftAmount) {
+        super(balance);
+        this.overdraftAmount = overdraftAmount;
+    }
+
+    public CheckingAccount(double balance) {
+        this(balance, 0);
+    }
+
+    @Override
+    public boolean withdraw(double amount) {
+        boolean result = true;
+        if (balance < amount) {
+            double overdraftNeeded = amount - balance;
+            if (overdraftAmount < overdraftNeeded) {
+                result = false;
+            } else {
+                balance = 0.0;
+                overdraftAmount -= overdraftNeeded;
+            }
+        } else {
+            balance -= amount;
+        }
+        return result;
+    }
+
+}
